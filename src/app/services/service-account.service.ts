@@ -8,10 +8,12 @@ export class ServiceAccountService {
 
   constructor(private http: HttpClient,) { }
 
-  getAccount(identification:string){
+  getCustomers() {
+    return this.http.get("http://localhost:8082/clientes")
+  }
 
+  getAccounts(identification:string) {
     return this.http.get("http://localhost:8083/cuentas")
-
   }
 }
 

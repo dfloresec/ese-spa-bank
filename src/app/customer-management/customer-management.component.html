@@ -1,17 +1,21 @@
-<p>customer-management works!</p>
+<p>Administración de clientes</p>
 
-<table>
+<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse;">
     <thead>
         <tr>
-            <th scope="col">Número</th>
-            <th scope="col">Tipo</th>
+            <th scope="col">Código</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Identificación</th>
+            <th scope="col">Teléfono</th>
         </tr>
     </thead>
     <tbody>
-        @for (data of dataAccount; track $index) {
+        @for (data of dataCustomers; track $index) {
         <tr>
-            <td> {{data.number }}</td>
-            <td> {{data.type }}</td>
+            <td> {{data.id }}</td>
+            <td> {{data.name }}</td>
+            <td> {{data.identification }}</td>
+            <td> {{data.phone }}</td>
         </tr>
         }
     </tbody>

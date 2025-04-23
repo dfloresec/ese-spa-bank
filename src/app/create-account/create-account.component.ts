@@ -8,13 +8,13 @@ import { ServiceAccountService } from '../services/service-account.service';
   styleUrl: './create-account.component.css'
 })
 export class CreateAccountComponent implements OnInit {
- dataAccount:any = []
+  dataAccounts:any = []
 
   constructor(private accountService: ServiceAccountService,) { }
   ngOnInit(): void {
-    this.accountService.getAccount("xxxxx").subscribe((data) => {
-      console.log("Hola", data);
-      this.dataAccount = data;
+    this.accountService.getAccounts("xxxxx").subscribe((data) => {
+      console.log("Cuentas: ", data);
+      this.dataAccounts = data;
     })
   }
 }

@@ -8,15 +8,13 @@ import { ServiceAccountService } from '../services/service-account.service';
   styleUrl: './customer-management.component.css'
 })
 export class CustomerManagementComponent implements OnInit {
-
-  dataAccount:any = []
+  dataCustomers:any = []
 
   constructor(private accountService: ServiceAccountService,) { }
   ngOnInit(): void {
-    this.accountService.getAccount("xxxxx").subscribe((data) => {
-      console.log("Hola", data);
-      this.dataAccount = data;
+    this.accountService.getCustomers().subscribe((data) => {
+      console.log("Clientes: ", data);
+      this.dataCustomers = data;
     })
   }
-
 }

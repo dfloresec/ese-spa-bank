@@ -1,0 +1,18 @@
+<p>create-account works!</p>
+
+<table>
+    <thead>
+        <tr>
+            <th scope="col">Número</th>
+            <th scope="col">Tipo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @for (data of dataAccount; track $index) {
+        <tr>
+            <td> {{data.number }}</td>
+            <td> {{data.type }}</td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -34,13 +34,11 @@ export class ManageMovementsComponent implements OnInit {
     }
 
     onSubmit() {
-      console.log("Input value: ", this.movementValue);
-
-  console.log("Selected Account ID: ", this.selectedAccountId);
   if (this.selectedAccountId) {
     this.accountService.saveMovement(this.selectedAccountId, this.movementValue).subscribe((data) => {
-      //console.log("Movimiento guardado: ", data);
-      alert("Movimiento guardado: " + data);    
+      console.log("Movimiento guardado: ", data);
+      const message = data && typeof data === 'object' && 'message' in data ? data.message : "Movimiento guardado correctamente.";
+      alert(message);
     });
   } else {
     alert("Por favor, seleccione una cuenta.");

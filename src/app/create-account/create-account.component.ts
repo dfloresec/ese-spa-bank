@@ -10,12 +10,24 @@ import { CommonModule } from '@angular/common';
   styleUrl: './create-account.component.css'
 })
 export class CreateAccountComponent implements OnInit {
+  dataCustomers: any = []
   dataAccounts:any = []
 
   constructor(private accountService: ServiceAccountService,) { }
   ngOnInit(): void {
-    this.accountService.getAccounts("xxxxx").subscribe((data) => {
-      console.log("Cuentas: ", data);
+    this.obtenerClientes();
+  }
+
+  obtenerClientes() {
+    this.accountService.getCustomers().subscribe((data) => {
+      console.log("Clientes: ", data);
+      this.dataCustomers = data;
+    })
+  }
+
+  obtenerCuentas(idCustomer: string) {
+    this.accountService.getAccounts(idCustomer).subscribe((data) => {
+      console.log(">>>>>>>>>>>>>>>Cuentas: ", data);
       this.dataAccounts = data;
     })
   }

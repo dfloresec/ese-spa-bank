@@ -1,20 +1,20 @@
-<p>Administración de cuentas</p>
+<p class="title">Administración de cuentas</p>
 
-<table border="1" cellpadding="5" cellspacing="0" style="width: 100%; border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th scope="col">Número</th>
-            <th scope="col">Tipo</th>
-            <th scope="col">Saldo</th>
-        </tr>
-    </thead>
-    <tbody>
-        @for (data of dataAccounts; track $index) {
+<table class="styled-table">
+  <thead>
+    <tr>
+      <th scope="col">Número</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Saldo</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (data of dataAccounts; track $index) {
         <tr>
             <td> {{data.number }}</td>
             <td> {{data.type }}</td>
             <td> {{data.balance }}</td>
         </tr>
         }
-    </tbody>
+  </tbody>
 </table>

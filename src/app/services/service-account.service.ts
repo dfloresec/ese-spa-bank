@@ -25,7 +25,17 @@ export class ServiceAccountService {
     return this.http.post("http://localhost:8083/movimientos", body);
   }
 
+  getMovements(idCustomer: string, startDate: string, endDate: string) {
+    console.log("ID Cliente: ", idCustomer);
+    const params = {
+      accountId: idCustomer,
+      startDate: startDate,
+      endDate: endDate
+    };
+    return this.http.get("http://localhost:8083/movimientos", { params });
 
+    
+  }
 
 }
 

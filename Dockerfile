@@ -20,7 +20,7 @@ RUN npm run build --prod
 FROM nginx:alpine AS production-stage
 
 # Copia los archivos construidos desde la etapa anterior
-COPY --from=build-stage /app/dist/ese-spa-bank /usr/share/nginx/html
+COPY --from=build-stage /app/dist /usr/share/nginx/html
 
 # Copia el archivo de configuración de Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf

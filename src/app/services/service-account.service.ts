@@ -12,8 +12,20 @@ export class ServiceAccountService {
     return this.http.get("http://localhost:8082/clientes")
   }
 
-  getAccounts(identification:string) {
-    return this.http.get("http://localhost:8083/cuentas")
+  getAccounts(idCustomer: string) {
+    console.log("ID Cliente: ", idCustomer);
+    return this.http.get("http://localhost:8083/cuentas/cliente/" + idCustomer)
   }
+
+  saveMovement(idAccount: string, movementValue: number) {
+    const body = {
+      accountId: idAccount,
+      valuee: movementValue
+    };
+    return this.http.post("http://localhost:8083/movimientos", body);
+  }
+
+
+
 }
 

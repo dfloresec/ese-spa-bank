@@ -1,1 +1,27 @@
 <p>Movimientos</p>
+<form (ngSubmit)="onSubmit()">
+<div>
+    <select #customerSelect (change)="obtenerCuentas(customerSelect.value)">
+        <option value="" disabled selected>Seleccione un cliente</option>
+        <option *ngFor="let item of dataCustomers" [value]="item.id">{{ item.name }}</option>
+    </select>
+</div>
+<div>
+    <select [(ngModel)]="selectedAccountId" name="selectedAccountId" required>
+        <option *ngFor="let item of dataAccounts" [value]="item.id">{{ item.number }} - {{ item.type }}</option>
+    </select>
+</div>
+<div>
+    
+    <input
+        id="valuee"
+        type="number"
+        placeholder="Ingrese el valor del movimiento"
+        name="movementValue"
+        [(ngModel)]="movementValue"
+        required
+    />
+        <button type="submit">Enviar</button>
+    
+</div>
+</form>
